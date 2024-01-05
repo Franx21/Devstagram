@@ -10,7 +10,7 @@
             <img src="{{ asset('img/registrar.jpg') }}" alt="Imagen registro de usuario">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="{{ route('register') }}" method="post">
+            <form action="{{ route('register') }}" method="post" novalidate>
                 @csrf
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -18,8 +18,9 @@
                     </label>
                     <input id="name" name="name" type="text" placeholder="Tu Nombre"
                         class="border p-3 w-full rounded-lg @error('name')
-                            border-red-500
-                        @enderror" />
+                            border-red-500 
+                        @enderror"
+                        value="{{ old('name') }}" />
                     @error('name')
                         <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
                     @enderror
@@ -32,7 +33,8 @@
                         class="border p-3 w-full rounded-lg"
                         @error('name')
                         border-red-500
-                    @enderror" />
+                    @enderror"
+                        value="{{ old('username') }}" />
                     @error('name')
                         <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
                     @enderror
@@ -45,7 +47,8 @@
                         class="border p-3 w-full rounded-lg"
                         @error('name')
                         border-red-500
-                    @enderror" />
+                    @enderror"
+                        value="{{ old('email') }}" />
                     @error('name')
                         <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
                     @enderror
@@ -58,17 +61,19 @@
                         class="border p-3 w-full rounded-lg"
                         @error('name')
                         border-red-500
-                    @enderror" />
+                    @enderror"
+                        value="{{ old('password') }}" />
                     @error('name')
                         <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="password_confimation" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">
                         Repetir Password
                     </label>
                     <input id="password_confirmation" name="password_confirmation" type="password"
-                        placeholder="Repite tu Password" class="border p-3 w-full rounded-lg" />
+                        placeholder="Repite tu Password" class="border p-3 w-full rounded-lg"
+                        value="{{ old('password_confirmation') }}" />
                 </div>
                 <input type="submit" value="Crear Cuenta"
                     class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg ">
