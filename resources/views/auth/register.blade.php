@@ -30,12 +30,12 @@
                         Username
                     </label>
                     <input id="username" name="username" type="text" placeholder="Tu Nombre de Usuario"
-                        class="border p-3 w-full rounded-lg"
-                        @error('name')
+                        class="border p-3 w-full rounded-lg
+                        @error('username')
                         border-red-500
                     @enderror"
                         value="{{ old('username') }}" />
-                    @error('name')
+                    @error('username')
                         <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
                     @enderror
                 </div>
@@ -44,12 +44,12 @@
                         Email
                     </label>
                     <input id="email" name="email" type="email" placeholder="Tu Correo Electronico"
-                        class="border p-3 w-full rounded-lg"
-                        @error('name')
+                        class="border p-3 w-full rounded-lg
+                        @error('email')
                         border-red-500
                     @enderror"
                         value="{{ old('email') }}" />
-                    @error('name')
+                    @error('email')
                         <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
                     @enderror
                 </div>
@@ -58,12 +58,12 @@
                         Password
                     </label>
                     <input id="password" name="password" type="password" placeholder="Tu Password"
-                        class="border p-3 w-full rounded-lg"
-                        @error('name')
+                        class="border p-3 w-full rounded-lg
+                        @error('password')
                         border-red-500
                     @enderror"
                         value="{{ old('password') }}" />
-                    @error('name')
+                    @error('password')
                         <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
                     @enderror
                 </div>
