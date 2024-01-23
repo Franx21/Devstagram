@@ -26,7 +26,8 @@
                                 d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
                         </svg>
                         Crear</a>
-                    <a class="font-bold text-gray-600 text-sm" href="#">Hola: <span
+                    <a class="font-bold text-gray-600 text-sm"
+                        href="{{ route('post.index', auth()->user()->username) }}">Hola: <span
                             class="font-normal">{{ auth()->user()->username }}</span></a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
