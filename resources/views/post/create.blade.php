@@ -7,7 +7,8 @@
 @section('contenido')
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            imagen aqui
+            <form action="/IMAGENES" id="dropzone"
+                class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center"></form>
         </div>
         <div class="md:w-1/2 px-10 bg-white rounded-lg mt-10 md:mt-0">
             <form action="{{ route('register') }}" method="post" novalidate>
@@ -15,7 +16,7 @@
                 <div class="mb-5">
                     <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">
                         Titulo
-                    </label>
+                    </label>    
                     <input id="titulo" name="titulo" type="text" placeholder="El titulo"
                         class="border p-3 w-full rounded-lg @error('titulo')
                                     border-red-500 

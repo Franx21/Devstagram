@@ -19,6 +19,6 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('post.create', auth()->user()->username);
+        return view('post.create');
     }
 }
