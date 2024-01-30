@@ -30,4 +30,4 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/{user:username}', [PostController::class, 'index'])->name('post.index');
 Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
-Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagen.store');
+Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');

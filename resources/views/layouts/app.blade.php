@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DevStagram - @yield('titulo')</title>
-    @stack('styles');
-    @vite(['resources/css/app.css', 'resources/js/app.js']);
+    @stack('styles')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-gray-100">
