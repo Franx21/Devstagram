@@ -10,13 +10,13 @@
 @section('contenido')
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            <form action="{{ route('imagenes.store') }}" method="POST" id="dropzone" enctype="multipart/form-data"
+            <form action="{{ route('imagenes.store') }}" method="POST" id="dropzone" novalidate enctype="multipart/form-data"
                 class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
                 @csrf
             </form>
         </div>
         <div class="md:w-1/2 px-10 bg-white rounded-lg mt-10 md:mt-0">
-            <form action="{{ route('register') }}" method="POST" novalidate>
+            <form action="{{ route('post.store') }}" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
                     <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -41,6 +41,12 @@
                                 @enderror"
                         value=""></textarea>
                     @error('descripcion')
+                        <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-5">
+                    <input type="hidden" name="imagen" value="{{ old('imagen') }}">
+                    @error('imagen')
                         <p class="bg-red-500 my-2 p-2 text-center text-white border rounded-lg">{{ $message }}</p>
                     @enderror
                 </div>
