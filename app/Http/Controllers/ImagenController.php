@@ -15,7 +15,7 @@ class ImagenController extends Controller
         $imagen = $request->file('file');
         $manager = new ImageManager(new Driver());
         $nombreImagen = hexdec(uniqid()) . '.' . $imagen->getClientOriginalExtension();
-        $img = $manager->read($imagen)->resize(1000, 1000)->toJpeg(80)->save(base_path('public/uploads/' . $nombreImagen));
+        $img = $manager->read($imagen)->resize(1000, 1200)->toJpeg(80)->save(base_path('public/uploads/' . $nombreImagen));
 
         return response()->json(['imagen' => $nombreImagen]);
     }

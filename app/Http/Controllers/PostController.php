@@ -15,7 +15,13 @@ class PostController extends Controller
 
     public function index(User $user)
     {
-        return view('layouts.dashboard', ['user' => $user]);
+
+        $posts = Post::where('user_id', $user->id)->paginate(12);
+
+        return view('dashboard', [
+            'user' => $user,
+            'posts' => $posts,
+        ]);
     }
 
     public function create()
@@ -42,5 +48,10 @@ class PostController extends Controller
         ]);
 
         return redirect()->route('post.index', auth()->user()->username);
+    }
+
+    public function show(User $user, Post $post)
+    {
+        return view('posts.show', ['post' => $post]);
     }
 }
