@@ -17,6 +17,16 @@
                 <p class="text-sm text-gray-500">{{ $post->created_at->diffForHumans() }}</p>
                 <p class="mt-5">{{ $post->descripcion }}</p>
             </div>
+            @auth
+                @if ($post->user_id === auth()->user()->id)
+                    <form method="POST" action="{{ route('posts.destroy', $post) }}">
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit" value="Eliminar Publicacion"
+                            class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursor-pointer">
+                    </form>
+                @endif
+            @endauth
         </div>
         <div class="md:w-1/2 p-5">
             <div class="shadow bg-white p-5 mb-5">
@@ -46,6 +56,20 @@
                             class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg ">
                     </form>
                 @endauth
+                <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll mt-10">
+                    @if ($post->comentario->count())
+                        @foreach ($post->comentario as $comentario)
+                            <div class="p-5 border-gray-300 border-b">
+                                <a href="{{ route('post.index', $comentario->user) }}"
+                                    class="font-bold">{{ $comentario->user->username }}</a>
+                                <p>{{ $comentario->comentario }}</p>
+                                <p class="text-sm text-gray-500">{{ $comentario->created_at->diffForHumans() }}</p>
+                            </div>
+                        @endforeach
+                    @else
+                        <p class="p-10 text-center">No hay comentarios aun</p>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

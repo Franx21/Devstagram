@@ -54,4 +54,9 @@ class PostController extends Controller
     {
         return view('posts.show', ['post' => $post, 'user' => $user]);
     }
+
+    public function destroy(Post $post)
+    {
+        dd('Eliminando ', $post->id);
+    }
 }

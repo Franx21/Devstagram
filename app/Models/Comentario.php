@@ -14,4 +14,9 @@ class Comentario extends Model
         'user_id',
         'comentario',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
