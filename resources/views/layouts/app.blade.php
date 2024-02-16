@@ -17,7 +17,7 @@
                     DevStagram
                 </h1>
                 <nav class="flex gap-5 items-center">
-                    <a href="{{ route('post.create') }}"
+                    <a href="{{ route('posts.create') }}"
                         class="flex items-center gap-2 bg-white border p-2 text-gray-600 rounded text-sm uppercase font-bold cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -28,7 +28,7 @@
                         </svg>
                         Crear</a>
                     <a class="font-bold text-gray-600 text-sm"
-                        href="{{ route('post.index', auth()->user()->username) }}">Hola: <span
+                        href="{{ route('posts.index', auth()->user()->username) }}">Hola: <span
                             class="font-normal">{{ auth()->user()->username }}</span></a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
