@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index(User $user)
     {
 
-        $posts = Post::where('user_id', $user->id)->paginate(12);
+        $posts = Post::where('user_id', $user->id)->latest()->paginate(12);
 
         return view('dashboard', [
             'user' => $user,
@@ -48,7 +48,7 @@ class PostController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        return redirect()->route('post.index', auth()->user()->username);
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 
     public function show(User $user, Post $post)
@@ -66,6 +66,6 @@ class PostController extends Controller
         if (File::exists($imagen_path)) {
             unlink($imagen_path);
         }
-        return redirect()->route('post.index', auth()->user()->username);
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 }
